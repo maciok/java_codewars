@@ -5,16 +5,18 @@ class DnaStrand {
         final StringBuilder sb = new StringBuilder();
 
         for (char symbol : dna.toCharArray()) {
-            if (symbol == 'A')
-                sb.append('T');
-            else if (symbol == 'T')
-                sb.append('A');
-            else if (symbol == 'C')
-                sb.append('G');
-            else if (symbol == 'G')
-                sb.append('C');
-            else
-                throw new IllegalArgumentException("Unknown symbol " + symbol);
+            switch (symbol) {
+                case 'A':
+                    sb.append('T'); break;
+                case 'T':
+                    sb.append('A'); break;
+                case 'C':
+                    sb.append('G'); break;
+                case 'G':
+                    sb.append('C'); break;
+                default:
+                    throw new IllegalArgumentException("Unknown symbol " + symbol);
+            }
         }
 
         return sb.toString();
